@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native';
+import Col from 'src/Components/Shared/Col/Col';
+import Row from 'src/Components/Shared/Row/Row';
 import scaler from 'src/Utils/Shared/scaler';
 import Button from './Button';
 
@@ -31,8 +33,15 @@ function Numbers({
     };
 
     return (
-        <View style={styles.numbers}>
-            <View style={styles.row}>
+        <Col style={{
+            paddingTop: scaler(15),
+            flexGrow: scaler(1),
+            paddingHorizontal: scaler(10)
+        }}>
+            <Row style={{
+                flex: scaler(1),
+                justifyContent: 'space-between',
+            }}>
                 <Button 
                     title={'7'}
                     style={numberBtn}
@@ -48,8 +57,11 @@ function Numbers({
                     style={numberBtn}
                     onClick={handleButtonClick}
                  />
-            </View>
-            <View style={styles.row}>
+            </Row>
+            <Row style={{
+                flex: scaler(1),
+                justifyContent: 'space-between',
+            }}>
                 <Button 
                     title={'4'}
                     style={numberBtn}
@@ -65,8 +77,11 @@ function Numbers({
                     style={numberBtn}
                     onClick={handleButtonClick}
                  />
-            </View>
-            <View style={styles.row}>
+            </Row>
+            <Row style={{
+                flex: scaler(1),
+                justifyContent: 'space-between',
+            }}>
                 <Button 
                     title={'1'}
                     style={numberBtn}
@@ -82,8 +97,11 @@ function Numbers({
                     style={numberBtn}
                     onClick={handleButtonClick}
                  />
-            </View>
-            <View style={styles.row}>
+            </Row>
+            <Row style={{
+                flex: scaler(1),
+                justifyContent: 'space-between',
+            }}>
                 <Button 
                     title={'0'}
                     style={numberBtn}
@@ -99,30 +117,13 @@ function Numbers({
                     style={numberBtn}
                     onClick={back}
                  />
-            </View>
+            </Row>
 
-        </View>
+        </Col>
     )
 }
 
 export default Numbers;
-
-
-const styles = StyleSheet.create({
-    numbers: {
-      paddingHorizontal: scaler(10),
-      paddingTop: scaler(15),
-      flexGrow: scaler(1),
-      flexDirection: 'column',
-
-    },
-    row: {
-      flex: scaler(1),
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      color: 'white',
-    },
-  });
   
   const numberBtn = StyleSheet.create({
     appButtonContainer: {

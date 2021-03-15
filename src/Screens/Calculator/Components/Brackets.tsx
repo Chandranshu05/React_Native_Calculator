@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet } from 'react-native';
 import { View } from 'react-native';
+import Row from 'src/Components/Shared/Row/Row';
 import Spacer from 'src/Components/Shared/Spacer/Spacer';
 import scaler from 'src/Utils/Shared/scaler';
 import Button from './Button';
@@ -37,27 +38,21 @@ function Brackets({
         }
     return (
         
-        <View style={styles.upbrackets}> 
+        <Row style={{
+            justifyContent: "flex-start",
+            padding: scaler(10),
+            paddingHorizontal: scaler(20)
+        }}> 
             <Button title={'('} style={equal} onClick={bracket} />
+
             <Spacer horizontal size={scaler(25)}/>
+            
             <Button title={')'} style={equal} onClick={bracket} />
-        </View>
+        </Row>
     )
 }
 
 export default Brackets
-
-const styles = StyleSheet.create({
-    upbrackets: {
-      paddingBottom: scaler(10),
-      marginLeft: scaler(2),
-      marginRight: scaler(2),
-      padding: scaler(5),
-      paddingHorizontal: scaler(20),
-      flexDirection: 'row',
-      justifyContent: 'flex-start',
-    }
-  });
   
   const equal = StyleSheet.create({
     appButtonContainer: {

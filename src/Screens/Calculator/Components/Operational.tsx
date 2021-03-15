@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native';
+import Col from 'src/Components/Shared/Col/Col';
+import Row from 'src/Components/Shared/Row/Row';
 import scaler from 'src/Utils/Shared/scaler';
 import Button from './Button';
 
@@ -76,10 +78,18 @@ function Operational({ setResult, text, setText, setHistory }: any) {
 
     return (
         <View 
-        style={styles.operators}
+        style={{
+            paddingHorizontal: scaler(10),
+            paddingBottom: scaler(25)
+        }}
         >
-            <View 
-            style={styles.mindiv}
+            <Row 
+            style={{
+                flex: scaler(1),
+                justifyContent: "space-between",
+                paddingRight: scaler(10),
+                marginTop: scaler(15)
+            }}
             >
                 <Button
                     title={'-'}
@@ -91,9 +101,12 @@ function Operational({ setResult, text, setText, setHistory }: any) {
                     style={operations}
                     onClick={handleButtonClick}
                 />
-            </View>
-            <View 
-            style={styles.plusButton}
+            </Row>
+            <Row 
+            style={{
+                flex: scaler(2),
+                justifyContent: "space-between"
+            }}
             >
                 <Button
                     title={'+'}
@@ -101,7 +114,13 @@ function Operational({ setResult, text, setText, setHistory }: any) {
                     onClick={handleButtonClick}
                 />
                 
-                <View style={styles.mulper}>
+                <Col style={{
+                    flex: scaler(1),
+                    justifyContent: "space-between",
+                    paddingBottom: scaler(20),
+                    marginLeft: scaler(10),
+                    marginBottom: scaler(2)
+                }}>
                     <Button
                         title={'x'}
                         style={operations}
@@ -112,8 +131,8 @@ function Operational({ setResult, text, setText, setHistory }: any) {
                         style={operations}
                         onClick={calcPercentage}
                     />
-                </View>
-            </View>
+                </Col>
+            </Row>
             <Button
                 title={'='}
                 style={equalButton}
@@ -124,34 +143,6 @@ function Operational({ setResult, text, setText, setHistory }: any) {
 }
 
 export default Operational
-
-
-const styles = StyleSheet.create({
-    operators: {
-      paddingBottom: scaler(25),
-      paddingHorizontal: scaler(10),
-    },
-    mindiv: {
-      flex: scaler(1),
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginTop: scaler(15),
-      paddingRight: scaler(10),
-    },
-    plusButton: {
-      flex: scaler(2),
-      justifyContent: 'space-between',
-      flexDirection: 'row',
-    },
-    mulper: {
-      marginLeft: scaler(10),
-      marginBottom: scaler(2),
-      flex: scaler(1),
-      justifyContent: 'space-between',
-      flexDirection: 'column',
-      paddingBottom: scaler(20),
-    },
-  });
   
   const plus = StyleSheet.create({
     appButtonContainer: {
